@@ -1,5 +1,5 @@
 package com.j5erp.service;
 
-public class RepertoryAssertService {
+public interface RepertoryAssertService {
     //仓库
 }

@@ -1,5 +1,5 @@
 package com.j5erp.service;
 
-public class DepartmentService {
+public interface DepartmentService {
     //部门
 }

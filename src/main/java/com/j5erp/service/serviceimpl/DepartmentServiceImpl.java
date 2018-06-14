@@ -1,5 +1,7 @@
 package com.j5erp.service.serviceimpl;
 
-public class DepartmentServiceImpl {
+import com.j5erp.service.DepartmentService;
+
+public class DepartmentServiceImpl implements DepartmentService {
     //部门
 }
