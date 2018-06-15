@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.j5erp.mapper.SaleorderMapper">
+    <resultMap type="com.j5erp.entity.Saleorder" id="saleorderRs">
+        <id column="id" property="id" />
+        <result column="cusid" property="cusid" />
+        <result column="TOADDRESS" property="TOADDRESS" />
+        <result column="SALETYPE" property="SALETYPE" />
+        <result column="ISTAX" property="ISTAX" />
+        <result column="ORDERSTATUS" property="ORDERSTATUS" />
+        <result column="ORDERTIME" property="ORDERTIME" />
+        <result column="COINTYPE" property="COINTYPE" />
+        <result column="PAITIES" property="PAITIES" />
+        <result column="WANDNAME" property="WANDNAME" />
+        <result column="DANDNAME" property="DANDNAME" />
+        <result column="CANDNAME" property="CANDNAME" />
+        <result column="MANDNAME" property="MANDNAME" />
+        <result column="CHECKSTATUS" property="CHECKSTATUS" />
+        <result column="REMARK" property="REMARK" />
+        <collection property="dlist" column="id" select="querySDById" />
+    </resultMap>
+    
+    <resultMap id="sdRs" type="com.j5erp.entity.Saleorderdetail">
+        <id column="SOID" property="SOID" />
+        <result column="LINENO" property="LINENO" />
+        <result column="MID" property="MID" />
+        <result column="MNAME" property="MNAME" />
+        <result column="STANDARD" property="STANDARD" />
+        <result column="UNITID" property="UNITID" />
+        <result column="UNITNAME" property="UNITNAME" />
+        <result column="NUM" property="NUM" />
+        <result column="BEFOREDISCOUNT" property="BEFOREDISCOUNT" />
+        <result column="DISCOUNT" property="DISCOUNT" />
+        <result column="PRICE" property="PRICE" />
+        <result column="TOTALPRICE" property="TOTALPRICE" />
+        <result column="TAXRATE" property="TAXRATE" />
+        <result column="TOTALTAX" property="TOTALTAX" />
+        <result column="TOTALMONEY" property="TOTALMONEY" />
+        <result column="BEFOREOUT" property="BEFOREOUT" />
+        <result column="ESTIMATEDATE" property="ESTIMATEDATE" />
+        <result column="LEFTNUM" property="LEFTNUM" />
+        <result column="ISGIFT" property="ISGIFT" />
+        <result column="FROMBILLTYPE" property="FROMBILLTYPE" />
+        <result column="FROMBILLID" property="FROMBILLID" />
+    </resultMap>
+    <!-- 从表 -->
+    <select id="querySDById" resultMap="sdRs">
+        select * from userfive.saleorderdetail where soid = #{id}
+    </select>
+
+    <!-- 主表 分页-->
+    <select id="queryOneByPage" resultMap="saleorderRs">
+        select * from userfive.saleorder where rownum between #{pageNow} and (#{pageNow}+1)
+    </select>
+
+
+
+</mapper>

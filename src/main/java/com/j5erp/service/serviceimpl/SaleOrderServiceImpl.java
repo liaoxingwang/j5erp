@@ -14,6 +14,7 @@ public class SaleOrderServiceImpl implements SaleOrderService {
 
     @Override
     public Saleorder querySaleOrderByPage(Integer pageNow) {
-        return mapper.queryOneByPage(pageNow);
+        Integer page = pageNow-1;
+        return mapper.queryOneByPage(page);
     }
 }

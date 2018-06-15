@@ -16,9 +16,9 @@ public class SaleOrderController {
     @RequestMapping("/querySaleOrderByPage")
     @ResponseBody
     public Saleorder querySaleOrderByPage(Integer pageNow){
-        pageNow = 0;
+
         Saleorder saleorder = service.querySaleOrderByPage(pageNow);
-        System.out.print(saleorder.getId());
+        System.out.print(saleorder.getDlist().size());
         return service.querySaleOrderByPage(pageNow);
     }
 }

@@ -5,15 +5,16 @@ import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
+import com.j5erp.entity.Saleorderdetail;
 import org.apache.ibatis.annotations.*;
 import org.apache.ibatis.type.JdbcType;
+import org.springframework.stereotype.Repository;
 
 @Mapper
+@Repository
 public interface SaleorderMapper {
 
-/*
-   @Select("select * from userfive.saleorder as s,userfive.saleorderdetail as sd where s.id = sd.soid and s.id in ((select id from userfive.saleorder limit #{pageNow},1) as a)")
-*/
-   /* @Select("select * from userfive.saleorder")*/
-    Saleorder queryOneByPage(@Param("pageNow") Integer pageNow);
+    public Saleorder queryOneByPage(@Param("pageNow") Integer pageNow);
+
+    public  List<Saleorderdetail> querySDById(@Param("id") Integer id);
 }
