@@ -90,4 +90,7 @@ public interface DepartmentMapper {
         "where DEPARTMENTID = #{departmentid,jdbcType=VARCHAR}"
     })
     int updateByPrimaryKey(Department record);
+
+    @Insert("insert into DEPARTMENT values()")
+    void insertdepar(Department department);
 }
