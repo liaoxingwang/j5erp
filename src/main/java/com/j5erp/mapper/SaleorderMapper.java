@@ -10,9 +10,10 @@ import org.apache.ibatis.type.JdbcType;
 
 @Mapper
 public interface SaleorderMapper {
+
 /*
-   @Select("select * from saleorder as s,saleorderdetail as sd where s.id = sd.soid and s.id in (select * from saleorder limit 0,#{pageNow})")
+   @Select("select * from userfive.saleorder as s,userfive.saleorderdetail as sd where s.id = sd.soid and s.id in ((select id from userfive.saleorder limit #{pageNow},1) as a)")
 */
-    @Select("select * from userfive.saleorder")
-    Saleorder queryOneByPage(Integer pageNow);
+   /* @Select("select * from userfive.saleorder")*/
+    Saleorder queryOneByPage(@Param("pageNow") Integer pageNow);
 }
